@@ -1,5 +1,11 @@
 package com.slowdony;
 
+/**
+ * 动态数组
+ * @author slowdony
+ *
+ * @param ArrayList
+ */
 @SuppressWarnings("unchecked")
 public class ArrayList<E> extends AbstractList<E> {
 

@@ -11,11 +11,12 @@ public class Main {
 		arrayList.add(3);
 		arrayList.add(4);
 		arrayList.add(null);
-		System.out.println(arrayList.toString());
+//		System.out.println(arrayList.toString());
 		arrayList.remove(2);
 		
-		System.out.println(arrayList.indexOf(null));
+//		System.out.println(arrayList.indexOf(null));
 		System.out.println(arrayList.toString());
+//		System.out.println("hello哈哈");
 	}
 
 }
