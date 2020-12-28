@@ -17,7 +17,6 @@ public class LinkedList<E> extends AbstractList<E> {
 		}
 	}
 	
-	
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
@@ -25,6 +24,7 @@ public class LinkedList<E> extends AbstractList<E> {
 		first = null;
 		
 	}
+	
 	/**
 	 * 获取
 	 */
@@ -38,6 +38,7 @@ public class LinkedList<E> extends AbstractList<E> {
 		 */
 		return node(index).element;
 	}
+	
 	/**
 	 * 设置
 	 */
@@ -49,6 +50,7 @@ public class LinkedList<E> extends AbstractList<E> {
 		node.element = element;
 		return old;
  	}
+	
 	/**
 	 * 添加
 	 */
@@ -60,7 +62,7 @@ public class LinkedList<E> extends AbstractList<E> {
 		if (index == 0) {
 			first = new Node<>(element,first);
 		}else {
-			Node<E> prevNode = node(index);
+			Node<E> prevNode = node(index-1);
 			prevNode.next = new Node<>(element,prevNode.next);
 		}
 		size ++ ;
@@ -96,8 +98,16 @@ public class LinkedList<E> extends AbstractList<E> {
 				node = node.next;
 			}
 		}else {
-			
+			Node<E> node = first;
+			for(int i = 0; i<size; i++) {
+				if ( node.element.equals(element)) {
+					return i;
+				}
+				node = node.next;
+			}
 		}
+		
+		return ELEMENT_NOT_FOUND;
 	}
 	
 	/**
@@ -112,6 +122,27 @@ public class LinkedList<E> extends AbstractList<E> {
 			node = node.next;
 		}
 		return node;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		
+		StringBuilder string = new StringBuilder();
+		string.append("Size=").append(size).append(",[");
+		Node<E> node = first;
+		for (int i = 0; i < size; i++) {
+			if (i!=0) {
+				string.append(", ");
+			}
+			
+			string.append(node.element);
+			node = node.next;
+		}
+		
+		string.append("]");
+		
+		return string.toString();
 	}
 	
 
