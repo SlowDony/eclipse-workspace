@@ -56,17 +56,48 @@ public class LinkedList<E> extends AbstractList<E> {
 	public void add(int index, E element) {
 		// TODO Auto-generated method stub
 		rangeCheckForAdd(index);
-		
+		//在角标为1添加元素
+		if (index == 0) {
+			first = new Node<>(element,first);
+		}else {
+			Node<E> prevNode = node(index);
+			prevNode.next = new Node<>(element,prevNode.next);
+		}
+		size ++ ;
 	}
+	
+	/**
+	 * 移除
+	 */
 	@Override
 	public E remove(int index) {
 		// TODO Auto-generated method stub
-		return null;
+		rangeCheck(index);
+		Node<E> node = first;
+		if (index == 0) {
+			first = first.next;
+		}else {
+			Node<E> preNode = node(index - 1);
+			node = preNode.next;
+			preNode.next = node.next;
+		}
+		size -- ;
+		return node.element;
 	}
+	//
 	@Override
 	public int indexOf(E element) {
 		// TODO Auto-generated method stub
-		return 0;
+		if (element == null) {
+			Node<E> node = first;
+			for (int i = 0; i < size; i++) {
+				if (node.element == null)
+					return i;
+				node = node.next;
+			}
+		}else {
+			
+		}
 	}
 	
 	/**
