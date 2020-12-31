@@ -74,7 +74,20 @@ public class SingleLinkedList2<E> extends AbstractList<E> {
 	@Override
 	public int indexOf(E element) {
 		// TODO Auto-generated method stub
-		return 0;
+		if (element == null) {
+			Node<E> node = first;
+			for (int i = 0; i < size; i++) {
+				if (node.elementE == null) return i;
+				node = node.nextNode;
+			}
+		}else {
+			Node<E> node = first;
+			for (int i = 0; i < size; i++) {
+				if (element.equals(node.elementE)) return i; 
+				node = node.nextNode;
+			}
+		}
+		return ELEMENT_NOT_FOUND;
 	}
 	
 	private Node<E> node(int index){
